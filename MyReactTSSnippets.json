@@ -1,3 +1,110 @@
 {
-"":""
+  "TS Function Component": {
+    "prefix": "myTSFC",
+    "body": [
+      "import { FC } from 'react';",
+      "",
+      "interface props {}",
+      "",
+      "const Component: FC<props> = () => {",
+      "  return <div className=''></div>;",
+      "};",
+      "",
+      "export default Component;"
+    ],
+    "description": "TS Function Component"
+  },
+  "TS RTK Store": {
+    "prefix": "myTSSTORE",
+    "body": [
+      "import { configureStore } from '@reduxjs/toolkit';",
+      "import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';",
+      "",
+      "const store = configureStore({",
+      "  reducer: {",
+      "    // your reducers",
+      "  },",
+      "});",
+      "",
+      "type RootState = ReturnType<typeof store.getState>;",
+      "type AppDispatch = typeof store.dispatch;",
+      "",
+      "export const useAppDispatch: () => AppDispatch = useDispatch;",
+      "export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;",
+      "",
+      "export default store;"
+    ],
+    "description": "RTK store TS template"
+  },
+  "TS RTK Slice": {
+    "prefix": "myTSSLICE",
+    "body": [
+      "import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';",
+      "import axios from 'axios';",
+      "",
+      "interface IState {",
+      "  status: 'idle' | 'loading' | 'success' | 'failed';",
+      "  value: any; // your call on value type",
+      "}",
+      "",
+      "const initialState: IState = {",
+      "  status: 'idle',",
+      "  value: null,",
+      "};",
+      "",
+      "export const thunk = createAsyncThunk<[]>('Sample/thunk', async (_, thunkAPI) => {",
+      "  try {",
+      "    const response = await axios.get('URL');",
+      "    return response.data;",
+      "  } catch (error) {",
+      "    return thunkAPI.rejectWithValue(error);",
+      "  }",
+      "});",
+      "",
+      "export const SampleSlice = createSlice({",
+      "  name: 'Sample',",
+      "  initialState,",
+      "  reducers: {",
+      "    Sample: (state, action: PayloadAction<any>) => {",
+      "      // your call on payload type",
+      "      state.value = action.payload;",
+      "    },",
+      "  },",
+      "  extraReducers: (builder) => {",
+      "    builder",
+      "      .addCase(thunk.pending, (state) => {",
+      "        state.status = 'loading';",
+      "      })",
+      "      .addCase(thunk.fulfilled, (state, action) => {",
+      "        state.status = 'success';",
+      "        state.value = action.payload;",
+      "      })",
+      "      .addCase(thunk.rejected, (state, action) => {",
+      "        state.status = 'failed';",
+      "        state.value = action.payload;",
+      "      });",
+      "  },",
+      "});",
+      "",
+      "export const { Sample } = SampleSlice.actions;",
+      "",
+      "export default SampleSlice.reducer;"
+    ],
+    "description": "RTK slice TS template"
+  },
+  "TS RTK Thunk": {
+    "prefix": "myTSTHUNK",
+    "body": [
+      "export const thunk = createAsyncThunk<[]>('Sample/thunk', async (_, thunkAPI) => {",
+      "  try {",
+      "    const response = await axios.get('URL');",
+      "    return response.data;",
+      "  } catch (error) {",
+      "    return thunkAPI.rejectWithValue(error);",
+      "  }",
+      "});"
+    ],
+    "description": "TS Function Component"
+  }
 }
+
