@@ -14,3 +14,6 @@
 - myNPM-D: extras, list of dev dependencies to install
 
 ### [WIP]: Custom Snippets for REST and GraphQL in Node
+
+### Edit/Create Snippets
+File > Preferences > Configure User Snippets
