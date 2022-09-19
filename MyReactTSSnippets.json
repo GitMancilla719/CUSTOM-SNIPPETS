@@ -31,19 +31,27 @@
     "description": "TS App Component"
   },
   "TS Function Component": {
-    "prefix": "myTSFC",
+    "prefix": "myTSARROWFC",
     "body": [
       "import { FC } from 'react';",
       "",
       "interface props {}",
       "",
       "const Component: FC<props> = () => {",
-      "  return <div className=''></div>;",
+      "  return <div className=''>component</div>;",
       "};",
       "",
       "export default Component;"
     ],
     "description": "TS Function Component"
+  },
+  "TS Select/Dispatch": {
+    "prefix": "myTSSD",
+    "body": [
+      "const dispatch = useAppDispatch();",
+      "const count = useAppSelector((state) => state);"
+    ],
+    "description": "TS dispatch/Selector"
   },
   "TS RTK Store": {
     "prefix": "myTSSTORE",
@@ -136,6 +144,11 @@
       "});"
     ],
     "description": "TS Thunk Function"
+  },
+  "CONSOLE LOG": {
+    "prefix": "myCO",
+    "body": "console.log()",
+    "description": "console logging"
   },
   "NPM INSTALL": {
     "prefix": "myNPM",
