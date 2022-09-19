@@ -150,6 +150,16 @@
     "body": "console.log()",
     "description": "console logging"
   },
+  "ARRAY MAP": {
+    "prefix": "myTSARMAP",
+    "body": "const yourVar = arrayToMap.map((inf) => inf)",
+    "description": "Array map template"
+  },
+  "ARRAY MAP JSX": {
+    "prefix": "myTSARMAPJSX",
+    "body": "arrayToMap.map((inf) => <div key={inf}>{inf}</div>)",
+    "description": "Array map template in JSX"
+  },
   "NPM INSTALL": {
     "prefix": "myNPM",
     "body": "npm i @reduxjs/toolkit axios react-redux react-router-dom",
