@@ -10,6 +10,8 @@
 - myTSSLICE: Redux-toolkit slice template
 - myTSTHUNK: Redux-toolkit thunk function
 - myCO: console logging
+- myTSARMAP: Array map template
+- myTSARMAPJSX: Array map template in JSX
 - myNPM: extras, list of dependencies to install
 - myNPM-D: extras, list of dev dependencies to install
 
