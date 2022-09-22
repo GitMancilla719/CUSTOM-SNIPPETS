@@ -1,0 +1,176 @@
+{
+  "APP RTS": {
+    "prefix": "1APP RTS",
+    "body": [
+      "import { FC } from 'react';",
+      "import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';",
+      "",
+      "const App: FC = () => {",
+      "  return (",
+      "    <div className=''>",
+      "      <BrowserRouter>",
+      "        <NavLink to='/'>Route</NavLink>",
+      "",
+      "        <Routes>",
+      "          <Route path='/' element={null} />",
+      "          {/* Nested */}",
+      "          <Route path='/route'>",
+      "            <Route index element={null} />",
+      "            <Route path=':id' element={null} />",
+      "          </Route>",
+      "          {/* 404 route */}",
+      "          <Route path='*' element={null} />",
+      "        </Routes>",
+      "      </BrowserRouter>",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default App;"
+    ],
+    "description": "React App Component with Basic Routing"
+  },
+  "ARROW FUNC COMPONENT-RTS": {
+    "prefix": "1COMPONENT RTS",
+    "body": [
+      "import { FC } from \"react\";",
+      "",
+      "interface Iprops {}",
+      "",
+      "const $TM_FILENAME_BASE: FC<Iprops> = () => {",
+      "  return <div className=\"\">$TM_FILENAME_BASE</div>;",
+      "};",
+      "",
+      "export default $TM_FILENAME_BASE;"
+    ],
+    "description": "React Arrow Function Component"
+  },
+  "STORE RTS": {
+    "prefix": "1STORE RTS",
+    "body": [
+      "import { configureStore } from \"@reduxjs/toolkit\";",
+      "import { useDispatch, useSelector, TypedUseSelectorHook } from \"react-redux\";",
+      "",
+      "export const store = configureStore({",
+      "  reducer: {",
+      "    // your reducers",
+      "  },",
+      "});",
+      "",
+      "type RootState = ReturnType<typeof store.getState>;",
+      "type AppDispatch = typeof store.dispatch;",
+      "",
+      "export const useAppDispatch: () => AppDispatch = useDispatch;",
+      "export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;",
+      ""
+    ],
+    "description": "React RTK Store"
+  },
+  "SLICE RTS": {
+    "prefix": "1SLICE RTS",
+    "body": [
+      "import { createSlice, PayloadAction, createAsyncThunk } from \"@reduxjs/toolkit\";",
+      "import axios from \"axios\";",
+      "",
+      "interface IState {",
+      "  status: \"idle\" | \"loading\" | \"success\" | \"failed\";",
+      "  value: any; // your call on value type",
+      "}",
+      "",
+      "const initialState: IState = {",
+      "  status: \"idle\",",
+      "  value: null,",
+      "};",
+      "",
+      "export const thunk = createAsyncThunk(\"$TM_FILENAME_BASE/thunk\", async (_, thunkAPI) => {",
+      "  try {",
+      "    const response = await axios.get<[]>(\"URL\");",
+      "    return response.data;",
+      "  } catch (error) {",
+      "    if (error instanceof Error) {",
+      "      return thunkAPI.rejectWithValue(error.message);",
+      "    } else {",
+      "      console.log(\"Unexpected error\", error);",
+      "    }",
+      "  }",
+      "});",
+      "",
+      "export const $TM_FILENAME_BASE = createSlice({",
+      "  name: \"$TM_FILENAME_BASE\",",
+      "  initialState,",
+      "  reducers: {",
+      "    Sample: (state, action: PayloadAction<any>) => {",
+      "      // your call on payload type",
+      "      state.value = action.payload;",
+      "    },",
+      "  },",
+      "  extraReducers: (builder) => {",
+      "    builder",
+      "      .addCase(thunk.pending, (state) => {",
+      "        state.status = \"loading\";",
+      "      })",
+      "      .addCase(thunk.fulfilled, (state, action) => {",
+      "        state.status = \"success\";",
+      "        state.value = action.payload;",
+      "      })",
+      "      .addCase(thunk.rejected, (state, action) => {",
+      "        state.status = \"failed\";",
+      "        state.value = action.payload;",
+      "      });",
+      "  },",
+      "});"
+    ],
+    "description": "React RTK Slice"
+  },
+  "THUNK RTS": {
+    "prefix": "1THUNK RTS",
+    "body": [
+      "export const thunk = createAsyncThunk('$TM_FILENAME_BASE/thunk', async (_, thunkAPI) => {",
+      "  try {",
+      "    const response = await axios.get<[]>('URL');",
+      "    return response.data;",
+      "  } catch (error) {",
+      "    if (error instanceof Error) {",
+      "      return thunkAPI.rejectWithValue(error.message);",
+      "    } else {",
+      "      console.log('Unexpected error', error);",
+      "    }",
+      "  }",
+      "});"
+    ],
+    "description": "React RTK Thunk"
+  },
+  "DISPATCH/SELECTOR RTS": {
+    "prefix": "1Dispatch/Selector RTS",
+    "body": [
+      "const dispatch = useAppDispatch();",
+      "const count = useAppSelector((state) => state);"
+    ],
+    "description": "React RTK Dispatch/Selector"
+  },
+  "CO": {
+    "prefix": "2CO",
+    "body": ["console.log()"],
+    "description": "Console Log"
+  },
+  "VARIABLE MAP": {
+    "prefix": "1VARMAP RTS",
+    "body": ["const variable = arr.map((inf) => inf)"],
+    "description": "Variable Map"
+  },
+  "TSX MAP": {
+    "prefix": "1TSXMAP RTS",
+    "body": ["arr.map((inf) => <div key={inf}>{inf}</div>)"],
+    "description": "TSX Map"
+  },
+  "NPM INSTALL": {
+    "prefix": "2NPM",
+    "body": ["npm i @reduxjs/toolkit axios react-redux react-router-dom"],
+    "description": "NPM DEPENDENCIES"
+  },
+  "NPM INSTALL -D": {
+    "prefix": "2NPM-D",
+    "body": ["npm i -D tailwindcss postcss autoprefixer"],
+    "description": "NPM DEV DEPENDENCIES"
+  }
+}
