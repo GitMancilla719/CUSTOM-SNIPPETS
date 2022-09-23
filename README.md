@@ -19,3 +19,8 @@
 
 ### Edit/Create Snippets
 File > Preferences > Configure User Snippets
+
+### File location
+Windows %APPDATA%\Code\User\snippets\(language).json
+Mac $HOME/Library/Application Support/Code/User/snippets/(language).json
+Linux $HOME/.config/Code/User/snippets/(language).json
