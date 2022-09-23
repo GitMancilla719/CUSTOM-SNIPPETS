@@ -1,0 +1,18 @@
+{
+  "CO": {
+    "prefix": "1CO",
+    "scope": "typescriptreact, typescript",
+    "body": ["console.log()"],
+    "description": "Console Log"
+  },
+  "NPM INSTALL": {
+    "prefix": "1NPM",
+    "body": ["npm i @reduxjs/toolkit axios react-redux react-router-dom"],
+    "description": "NPM DEPENDENCIES"
+  },
+  "NPM INSTALL -D": {
+    "prefix": "1NPM-D",
+    "body": ["npm i -D tailwindcss postcss autoprefixer"],
+    "description": "NPM DEV DEPENDENCIES"
+  }
+}
